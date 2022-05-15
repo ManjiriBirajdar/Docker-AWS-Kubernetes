@@ -97,7 +97,7 @@ docker stop containername
 docker rmi containerid
 
 ````
-## command dump
+## Command dump
 
 ````
 docker ps -a
@@ -112,18 +112,25 @@ docker rm first
 docker ps -a
 docker images
 docker rmi ec2f84c71893
+docker images
+docker tag cognixia14may:1.0 rajendrait99/cognixia14may:1.0
+docker images
+
+docker login
+docker push rajendrait99/cognixia14may:1.0
+docker pull rajendrait99/cognixia14may:1.0
 ````
 
 ## push and pull to [Docker Hub](https://hub.docker.com/)
 
 ````
-  docker images
-  docker tag cognixia14may:1.0 rajendrait99/cognixia14may:1.0
-  docker images
-  
-  docker login
-  docker push rajendrait99/cognixia14may:1.0
-  docker pull rajendrait99/cognixia14may:1.0
+docker images
+docker tag cognixia14may:1.0 rajendrait99/cognixia14may:1.0
+docker images
+
+docker login
+docker push rajendrait99/cognixia14may:1.0
+docker pull rajendrait99/cognixia14may:1.0
 ````
 
 
