@@ -78,6 +78,11 @@ docker logs first
 docker exec -it first bash
 ````
 
+Use following command to come out of container
+````
+exit
+````
+
 ## Removing imgage
 
 ````
@@ -105,7 +110,17 @@ docker images
 docker rmi ec2f84c71893
 ````
 
+## push and pull to [Docker Hub](https://hub.docker.com/)
 
+````
+  docker images
+  docker tag cognixia14may:1.0 rajendrait99/cognixia14may:1.0
+  docker images
+  
+  docker login
+  docker push rajendrait99/cognixia14may:1.0
+  docker pull rajendrait99/cognixia14may:1.0
+````
 
 
 
