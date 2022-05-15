@@ -1,6 +1,6 @@
 # Day 2: 
 
-## Build image 
+## Build Image 
 
 ````
 docker build -t cognixia14may:1.0 . 
@@ -179,5 +179,97 @@ docker run -d --name second -p 8000:8080 -v /opt:/etc/lala rajendrait99/cognixia
 docker exec -it second bash
 
 ````
+
+# Docker Networking
+
+## Command dump
+
+````
+docker ps -a
+docker stop second
+docker rm second
+
+docker ps -a
+
+docker network ls
+
+ifconfig
+
+docker network ls
+
+docker network inspect bridge
+
+ifconfig
+
+docker run -d --name second -p 8000:8080 -v /opt:/etc/lala rajendrait99/cognixia14may:1.0
+
+docker network inspect bridge
+
+ifconfig
+
+docker run -d --name training -p 8001:8080 -v /opt:/etc/lala rajendrait99/cognixia14may:1.0
+docker network create mynet --subnet 192.168.0.0/16
+
+docker network ls
+
+docker network inspect mynet
+
+ifconfig
+
+docker run -d --name training -p 8001:8080 -v /opt:/etc/lala --network mynet rajendrait99/cognixia14may:1.0
+docker network inspect mynet
+
+docker exec -it second bash
+
+docker network connect mynet second
+
+docker exec -it second bash
+
+````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
