@@ -227,6 +227,43 @@ docker exec -it second bash
 
 ````
 
+# Docker Registry
+
+Private registry used for propritary use/ inside organization where you can store your images.
+
+````
+ docker run -d --name private -p 5000:5000 registry:2
+ 
+ docker ps -a
+ 
+ docker images
+ 
+ docker tag cognixia14may:1.0 localhost:5000/cognixia14may:1.0
+ docker images
+ 
+ // push image
+ docker push localhost:5000/cognixia14may:1.0
+ docker images
+ 
+ docker rmi  808c387e6389  53df61775e88 -f
+ docker images
+ 
+ //pull image
+ docker pull localhost:500/cognixia14may:1.0
+ docker pull localhost:5000/cognixia14may:1.0
+ docker images
+ 
+ //test
+ curl localhost:500/v2/_catalog
+ curl localhost:5000/v2/_catalog
+ 
+ docker exec -it private bash
+ 
+ docker exec -it private sh
+ 
+ ls /opt/
+ 
+ vi /opt/xyz.txt
 
 
 
