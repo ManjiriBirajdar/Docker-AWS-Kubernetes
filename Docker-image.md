@@ -2,10 +2,6 @@
 
 ## Build image 
 
--t is image name
-: used for image version
-. is used location of the Dockerfile / curruent directory
-
 ````
 docker build -t cognixia14may:1.0 . 
 
@@ -13,12 +9,22 @@ docker images
 
 docker build -t cognixia14may:1.0 . 
 ````
+-t is image name
 
-image is read. now we will create a container
+: used for image version
+
+. is used location of the Dockerfile / curruent directory.
+
+image is ready. now we will create a container:
+
+Parameters:
 
 -d used to running container in background mode /process : deamon mode
+
 --name name of the container / default or random name is possible when you leave it empty
+
 -p is to specify hostport:applicationport
+
 imagename
 
 ````
@@ -34,9 +40,10 @@ docker rm // stop container then remove container
 
 docker imges
 ````
+
 Notice the container id : ec2f84c71893b281debffbd7f68d3c65d0e8a032b720b5d52ca52d04caffccac
 
-Now, access the application
+Now, access the application:
 
 ````
 curl localhost:8000
@@ -81,6 +88,23 @@ docker stop containername
 docker rmi containerid
 
 ````
+## command dump
+
+````
+docker ps -a
+docker stats
+docker logs first
+docker exec -it first bash
+docker ps
+docker ps -a
+docker stop first
+docker ps -a
+docker rm first
+docker ps -a
+docker images
+docker rmi ec2f84c71893
+````
+
 
 
 
