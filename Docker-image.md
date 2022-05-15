@@ -133,7 +133,51 @@ docker push rajendrait99/cognixia14may:1.0
 docker pull rajendrait99/cognixia14may:1.0
 ````
 
+# Docker volumes
 
+EC2 --> container --> tmp storage   //stateless 
 
+Mount host machine path to the container // state
+
+From host machine , we attach storage/volumn to the container
+
+paramerter:
+
+-v storagepath
+
+````
+docker ps -a
+docker exec -it second bash
+docker stop second
+docker rm second
+
+docker run -d --name second -p 8000:8080 rajendrait99/cognixia14may:1.0
+
+docker exec -it second bash
+docker stop second
+docker rm second
+
+docker run -d --name second -p 8000:8080 -v /opt:/etc/lala rajendrait99/cognixia14may:1.0
+
+ls /opt/
+rm /opt/abc.txt
+ls /opt/
+
+docker run -d --name second -p 8000:8080 -v /opt:/etc/lala rajendrait99/cognixia14may:1.0
+
+docker exec -it second bash
+
+ls /opt/
+
+docker stop second
+docker rm second
+
+ls /opt/
+
+docker run -d --name second -p 8000:8080 -v /opt:/etc/lala rajendrait99/cognixia14may:1.0
+
+docker exec -it second bash
+
+````
 
 
