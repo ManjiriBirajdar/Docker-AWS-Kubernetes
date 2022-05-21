@@ -16,33 +16,33 @@
 
 <img src="https://github.com/ManjiriBirajdar/Docker-AWS-Kubernetes/blob/main/kubernetes%20architecture.JPG"/>
 
-## Components required on every node
+# Components (required on every node)
 
-### Master
+## Master
 
-### API server
+## API server
 
-### etcd 
+## etcd 
 Nosql database
 
-###  Scheduler
+##  Scheduler
 
-### Controller
+## Controller
 
 - Responsible for high availability
 - Communicates with API server for getting info about pods based on lable
 - Replication management
 - Assures no downtime
 
-### Kubelet Docker
+## Kubelet Docker
 
-### Pod
+## Pod
 
-### Kubeproxy
+## Kubeproxy
 
 Take cares of Network functionally
 
-### CNI (Container Network Interface)
+## CNI (Container Network Interface)
 
 Pod needs networking capability. 
 Communicates all details of the pods, 
