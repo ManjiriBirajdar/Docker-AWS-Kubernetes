@@ -21,6 +21,7 @@ Create "config" file
 
 ============configfile====================
 
+````
 # three node (two workers) cluster config
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -29,6 +30,7 @@ nodes:
 - role: worker
 - role: worker
 
+````
 Run following commands:
 
 ============create kind cluster============
