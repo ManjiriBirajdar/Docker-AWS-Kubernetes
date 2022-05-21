@@ -1,23 +1,23 @@
 # KIND cluster creation
 
 ===========Kind installation steps============
-
+````
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.12.0/kind-linux-amd64
 
 chmod +x ./kind
 
 sudo mv ./kind /usr/local/bin/kind
-
-
+````
 ==========kubectl installation steps============
-
+````
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
-
 
 chmod +x ./kubectl
 
 sudo mv ./kubectl /usr/local/bin/kubectl
 
+````
+Create "config" file
 
 ============configfile====================
 
@@ -29,11 +29,16 @@ nodes:
 - role: worker
 - role: worker
 
-============create kind cluster============
+Run following commands:
 
+============create kind cluster============
+````
 kind create cluster --config configfile
 
 If nodes are in NotReady state do below steps
 sudo sysctl net/netfilter/nf_conntrack_max=131072
 kind delete cluster
+
 kind create cluster --config configfile
+
+````
