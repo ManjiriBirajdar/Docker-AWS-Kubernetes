@@ -87,7 +87,7 @@ Use following command to come out of container
 exit
 ````
 
-## Removing imgage
+## Removing images
 
 ````
 docker images
