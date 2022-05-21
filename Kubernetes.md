@@ -49,9 +49,11 @@ Communicates all details of the pods,
 
 ## Objects
 
-Each object file is yaml file
+# Cluster Creation Tools
 
-### deployment
+## KIND - K8S inside Docker ( used for CI-CD)
 
+- Multi-node cluster: to create a multi node cluster on single machine
+- master-worker creation
 
-# Communication
+## Kubeadm
