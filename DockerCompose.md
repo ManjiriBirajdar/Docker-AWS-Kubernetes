@@ -33,6 +33,8 @@ UI
 - it basically increments the object counter.
 - We write our own Dockerfile, requirements.txt, app.py
 
+https://github.com/rskTech/k8s_material/tree/master/docker_compose
+
 ## Docker Compose File
 
 yaml Format:
@@ -57,4 +59,32 @@ services:
 
 networks:
     mynet
+````
+
+## Commands used:
+
+````
+apt install docker-compose
+docker-compose -f compose.yaml up -d
+
+vi compose.yaml
+docker-compose -f compose.yaml up -d
+
+vi compose.yaml
+docker-compose -f compose.yaml up -d
+
+docker ps -a
+
+curl localhost:8000
+
+docker-compose -f compose.yaml down
+
+docker ps -a
+
+docker-compose -f compose.yaml up -d
+
+vi compose.yaml
+vi Dockerfile
+vi compose.yaml  
+
 ````
