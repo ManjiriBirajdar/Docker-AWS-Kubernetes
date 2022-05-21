@@ -14,6 +14,8 @@
 
 # Kubernetes Architecture
 
+<img src="https://github.com/ManjiriBirajdar/Docker-AWS-Kubernetes/blob/main/kubernetes%20architecture.JPG"/>
+
 ## Components required on every node
 
 ### Master
