@@ -206,17 +206,22 @@ k describe po first-57b49bc5c7-zrp4h
 
 ````
 
-# Service Object
+# Service Object (Virtual object/running processes)
 
 we cant expose our pod directly to any one as it can change its config in cluster e.g. if one pod replica fails, then scheduler might run it on some other part of cluster.
 
-## NodePodt
+One to one communication among pods or external user to pod is not possible.
 
-external user to pod communication
+Each service has label. example: UI
+
+## NodePort service
+
+- External user to pod communication
+- Access application outside the cluster
 
 ## Clusterip service
 
-pod to pod communication within one cluster
+- pod to pod communication within one cluster
 
 ## Load Balance service
 
