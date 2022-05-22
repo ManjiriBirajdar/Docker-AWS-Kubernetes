@@ -113,7 +113,7 @@ k delete po first-586f8c4b58-bsf5p
 
 ## Scaling
 
-### Manual Scaling
+### 1. Manual Scaling
 
 How to increase available pods to 10? 
 
@@ -130,7 +130,7 @@ k get po
 k get po -o wide
 
 ````
-### Automatic Scaling (HPA : Horizontal Pod Autoscale)
+### 2. Automatic Scaling (HPA : Horizontal Pod Autoscale)
 
 Adjust replicas based on trafficload
 
@@ -155,7 +155,7 @@ k get hpa
 
 k delete hpa first
 ````
-### Zero downtime upgrade 
+### 3. Zero downtime upgrade 
 
 Load balancer : distribute traffic to multiple pods
 
