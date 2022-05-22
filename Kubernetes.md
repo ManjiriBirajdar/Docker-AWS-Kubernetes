@@ -206,4 +206,20 @@ k describe po first-57b49bc5c7-zrp4h
 
 ````
 
+# Service Object
 
+we cant expose our pod directly to any one as it can change its config in cluster e.g. if one pod replica fails, then scheduler might run it on some other part of cluster.
+
+## NodePodt
+
+external user to pod communication
+
+## Clusterip service
+
+pod to pod communication within one cluster
+
+## Load Balance service
+
+- only if you wanna use third-party load balancer or your own
+- AWS load balancer service
+- own load balancer service
