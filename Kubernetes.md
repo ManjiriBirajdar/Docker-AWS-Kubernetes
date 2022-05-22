@@ -65,6 +65,7 @@ Communicates all details of the pods,
 # Demonstration 
 
 ## Pod creation
+
 ````
 docker ps -a
 kubectl get no
@@ -149,6 +150,59 @@ k get po -o wide
 k autoscale deploy first --cpu-percent=80 --min=2 --max=10
 
 k get hpa
+
+//delete
+
+k delete hpa first
+````
+### Zero downtime upgrade 
+
+Load balancer : distribute traffic to multiple pods
+
+deployment -->
+    RC(replica) = 2
+
+If UI needs to be updated, then we can use replica feature
+
+````
+k get all
+k delete hpa first
+k get all
+
+k describe pod/first-586f8c4b58-qxrps
+
+k scale deploy first --replicas=20
+k get po
+
+k set image deploy first nginx=nginx:1.7.8
+k rollout history deploy first
+k rollout status deploy first
+
+k set image deploy first nginx=nginx:1.7.8 --record
+k rollout status deploy first
+k get po
+
+k rollout status deploy first
+k get po
+
+k describe po first-57b49bc5c7-xt8kq
+
+k rollout history deploy first
+
+k set image deploy first nginx=nginx:1.7.9 --record
+
+k rollout history deploy first
+k get po
+k get all
+
+k rollout history deploy first
+
+k rollout undo deploy first  --to-revision=2
+
+k rollout history deploy first
+
+k get po
+k describe po first-57b49bc5c7-zrp4h
 
 ````
 
