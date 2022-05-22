@@ -40,6 +40,12 @@ Nosql database
 
 ## Pod
 
+### Pod creation
+
+````
+
+````
+
 ## Kubeproxy
 
 Take cares of Network functionally
