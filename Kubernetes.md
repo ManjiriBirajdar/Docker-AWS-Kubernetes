@@ -85,16 +85,71 @@ k get po
 k delete po first
 k get po
 ````
+
+## Deployment
+
+````
+k get po
+
+k create deploy first --image=nginx:latest --port=80 --dry-run=client -o yaml > deploy.yaml
+
+vi deploy.yaml
+k explain deploy
+k explain deploy.spec
+k explain deploy.spec.template
+k explain deploy.spec.template.spec
+k explain deploy.spec.template.spec.containers
+
+vi deploy.yaml
+k apply -f deploy.yaml
+
+k get all
+k get po
+
+k delete po first-586f8c4b58-bsf5p
+
+````
+
 ## Scaling
 
 ### Manual Scaling
 
-### Automatic Scaling
+How to increase available pods to 10? 
+
+Existing pods are 2. 
+So, after running following commands, 8 new pods will be created and will be running.
+
+````
+k get po
+k get all
+
+k scale deploy first --replicas=10
+
+k get po
+k get po -o wide
+
+````
+### Automatic Scaling (HPA : Horizontal Pod Autoscale)
 
 Adjust replicas based on trafficload
 
 - Horizontal pod auto scaler
 - Specify: max space and min space utilization
 
+So, Depending on the traffic load,  
+
+Min : 2 pods
+Max : 10 pods
+
+will be used to scale up or scale down the replicas.
+
+````
+k get po -o wide
+
+k autoscale deploy first --cpu-percent=80 --min=2 --max=10
+
+k get hpa
+
+````
 
 
