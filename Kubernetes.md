@@ -54,8 +54,10 @@ Communicates all details of the pods,
 # Cluster Creation Tools
 
 ## KIND - K8S inside Docker ( used for CI-CD)
+(on single machine)
 
 - Multi-node cluster: to create a multi node cluster on single machine
 - master-worker creation
 
 ## Kubeadm
+(multiple physical machines or virtual machines)
