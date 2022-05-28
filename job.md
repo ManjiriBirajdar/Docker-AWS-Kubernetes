@@ -57,3 +57,21 @@ Commands to run:
   470  watch kubectl get all
   471  history
 ````
+
+## Cronjob
+
+https://crontab.guru/examples.html
+
+Commands to run:
+
+````
+78  k create cj mycj --image=ubuntu:18.04 --dry-run=client -o yaml --schedule="*/1 * * * *" -- sleep 10 > ch.yaml
+  479  mv ch.yaml cj.yaml
+  480  vi cj.yaml
+  481  k delete job myjob
+  482  k apply -f cj.yaml
+  483  watch kubectl get all
+  484  k explain job.spec
+  485  history
+
+````
