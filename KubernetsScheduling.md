@@ -211,3 +211,63 @@ Commands ti run:
   428  k get po
   429  k get po -o wide
 ````
+#  DaemonSet
+
+yaml file:
+
+````
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-elasticsearch
+  labels:
+    k8s-app: fluentd-logging
+spec:
+  selector:
+    matchLabels:
+      name: fluentd-elasticsearch
+  template:
+    metadata:
+      labels:
+        name: fluentd-elasticsearch
+    spec:
+      tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      # remove them if your control plane nodes should not run pods
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: fluentd-elasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+````
+
+Commands to run:
+
+```
+
+  431  cat pod.yaml
+  432  k get po -n kube-system
+  433  k get po -n kube-system -o wide
+  434  k get ds -n kube-system
+  435  vi ds.yaml
+  436  k get all
+  437  k delete po nginx
+  438  k apply -f ds.yaml
+  439  k get ds
+  440  k get po
+  441  k get po -o wide
+  442  k get no
+  443  k describe no kind-worker
+  444  k taint no kind-worker hdd-
+  445  k get no
+  446  k uncordon kind-worker2
+  447  k get no
+  448  k get po
+  449  k get po -o wide
+  450  k get ds
+  451  history
+````
