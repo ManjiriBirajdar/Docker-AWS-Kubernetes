@@ -120,3 +120,94 @@ Commands to run:
   394  vi pod.yaml
   395  history
 ````
+
+## Taint and Toleration
+
+### Taint 
+
+Add "LOCK" on the nodes
+
+
+### Toleration
+
+Provode key to pod
+
+## Taint Effect
+
+### No schedule
+
+if taint and toleration is not matching, then dont schedule that pod on the node
+
+### Prefer NO Schedule
+
+if taint and toleration is not matching, then dont schedule that pod on the node. If there is nooption, then only you can schedule.
+
+### no Execute
+
+## Example:
+
+yaml file 
+
+````
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+    app: nginx
+  name: nginx
+spec:
+  tolerations:
+      -   key: hdd
+          operator: Equal
+          value: ssd
+          effect: NoSchedule
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+````
+Commands ti run:
+
+````
+ 396  vi pod.yaml
+  397  k explain po.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms.matchExpressions
+  398  k explain po.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms
+  399  k explain po.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution
+  400  k get no
+  401  k describe no kind-worker
+  402  k describe no kind-worker2
+  403  k describe no kind-control-plane
+  404  k taint no kind-worker hdd=ssd:NoSchedule
+  405  k get no --show-labels
+  406  k label no kind-worker hdd-
+  407  k get no --show-labels
+  408  k describe no kind-worker
+  409  vi pod.yaml
+  410  k apply -f pod.yaml
+  411  k get po
+  412  k delete po nginx
+  413  k apply -f pod.yaml
+  414  k get po -o wide
+  415  k get no
+  416  k cordon kind-worker2
+  417  k get no
+  418  k delete po nginx
+  419  vi pod.yaml
+  420  k apply -f pod.yaml
+  421  k get po
+  422  k describe po nginx
+  423  k delete po nginx
+  424  vi pod.yaml
+  425  k apply -f pod.yaml
+  426  vi pod.yaml
+  427  k apply -f pod.yaml
+  428  k get po
+  429  k get po -o wide
+````
