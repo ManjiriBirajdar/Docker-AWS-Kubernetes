@@ -102,11 +102,20 @@ Commands to run:
   
 ````
 
-# Dynamic Persistent Volumn
+# Dynamic Volumn Provision
 
-Required for creation of pod
+On-demand storage creation
 
-## Storage class --> provisioner (storage provider specifics)
+## Object --> Storage class --> provisioner (storage provider specifics)
+
+Steps:
+
+- Every storage provider shares their provisioner.
+- For each pod, we create pvc.
+- Based on attributes in pvc, the storage with specific volumn is created.
 
 Provisioner : Automation job/script which will create a storage with specifc volumn
+
+More info: https://kubernetes.io/docs/concepts/storage/storage-classes/
+
 
