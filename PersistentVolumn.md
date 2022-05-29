@@ -101,3 +101,12 @@ Commands to run:
   545  history
   
 ````
+
+# Dynamic Persistent Volumn
+
+Required for creation of pod
+
+## Storage class --> provisioner (storage provider specifics)
+
+Provisioner : Automation job/script which will create a storage with specifc volumn
+
