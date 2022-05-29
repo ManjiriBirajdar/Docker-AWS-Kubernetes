@@ -118,4 +118,51 @@ Provisioner : Automation job/script which will create a storage with specifc vol
 
 More info: https://kubernetes.io/docs/concepts/storage/storage-classes/
 
+# Stateful 
 
+More info: https://github.com/rskTech/k8s_material/tree/master/statefulset
+
+````
+ 553  git clone https://github.com/rskTech/k8s_material.git
+  554  cd k8s_material/statefulset/
+  555  vi sfs.yaml
+  556  k get pv
+  557  k get pvc
+  558  k get po
+  559  k delete po nginx
+  560  k delete pvc mypvc
+  561  k delete pv mypv
+  562  k get sts
+  563  k apply -f sfs.yaml
+  564  k get sts
+  565  k get po
+  566  k get pvc
+  567  k get sc
+  568  vi sc.yaml
+  569  k apply -f sc.yaml
+  570  k get po
+  571  k get pvc
+  572  vi sfs.yaml
+  573  ls
+  574  k apply -f pv.yaml
+  575  k get pv
+  576  k get pvc
+  577  k get po
+  578  k get pvc
+  579  k apply -f pv1.yaml
+  580  k get po
+  581  k get pvc
+  582  k apply -f pv2.yaml
+  583  k get po
+  584  k get pvc
+  585  k get pv
+  586  k get po
+  587  k delete po web-1
+  588  k get po
+  589  k get pvc
+  590  k scale sts web --replicas=5
+  591  k get po
+  592  k get pvc
+  593  ls
+
+````
