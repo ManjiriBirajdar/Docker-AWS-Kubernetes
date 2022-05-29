@@ -91,3 +91,33 @@ After that, Run following commands:
 
 Applicable for several config map files
 
+Add **volumeMounts:** attribute to yaml file:
+
+````
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+    app: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    volumeMounts:
+            - name: myvol
+              mountPath: /etc/foo
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+        - name: myvol
+          configMap:
+                  name: mycm1
+status: {}
+
+````
