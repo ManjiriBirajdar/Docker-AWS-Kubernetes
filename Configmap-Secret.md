@@ -121,3 +121,23 @@ spec:
 status: {}
 
 ````
+
+# Secret
+
+Encode data. e.g. passwords
+
+Data will be displayed in encoded format not in plain text (as in configmap).
+
+Use secret key refrence
+
+For multiple secrets, keep a file
+
+````
+k create secret generic mysecret --from-literal=dbpass=admin
+
+
+configMapKeyRef  => secretKeyRef
+
+configMap => secret
+
+````
