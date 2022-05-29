@@ -10,6 +10,59 @@ e.g. Database username password is mentioned in app config file rather than hard
 
 Applicable for 1-2 config map files
 
+Add following attribute in yaml file:
+
+````
+env:
+      - name: DBHOST
+        valueFrom:
+                configMapKeyRef:
+                        name: mycm
+                        key: dbhost
+      - name: DBPASS
+        valueFrom:
+                configMapKeyRef:
+                        name: mycm
+                        key: dbpass
+````
+
+Edited yaml file:
+
+````
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+    app: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    env:
+      - name: DBHOST
+        valueFrom:
+                configMapKeyRef:
+                        name: mycm
+                        key: dbhost
+      - name: DBPASS
+        valueFrom:
+                configMapKeyRef:
+                        name: mycm
+                        key: dbpass
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+````
+
+After that, Run following commands:
+
 ````
 
   487  alias k=kubectl
@@ -34,7 +87,7 @@ Applicable for 1-2 config map files
   506  history
 
 ````
-### 2. Filw with multiple config file inside
+### 2. File with multiple config file inside
 
 Applicable for several config map files
 
